@@ -27,7 +27,7 @@ explicitly.
 
 ```bash
 allennlp predict \
-    https://allennlp.s3.amazonaws.com/models/ner-model-2018.04.26.tar.gz \
+    https://s3-us-west-2.amazonaws.com/allennlp/models/ner-model-2018.12.18.tar.gz \
     ner-examples.jsonl \
     --predictor sentence-tagger
 ```
@@ -40,7 +40,7 @@ uses the default predictor (`sentence-tagger`) for the NER model.
 
 ```python
 from allennlp.predictors import Predictor
-predictor = Predictor.from_path("https://allennlp.s3.amazonaws.com/models/ner-model-2018.04.26.tar.gz")
+predictor = Predictor.from_path("https://s3-us-west-2.amazonaws.com/allennlp/models/ner-model-2018.12.18.tar.gz")
 results = predictor.predict(sentence="Did Uriah honestly think he could beat The Legend of Zelda in under three hours?")
 for word, tag in zip(results["words"], results["tags"]):
     print(f"{word}\t{tag}")
